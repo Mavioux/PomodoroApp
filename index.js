@@ -1,40 +1,27 @@
 let express = require('express');
 let mongoose = require('mongoose');
+const expressLayouts = require('express-ejs-layouts');
 let app = express();
-
 const PORT = 5000;
 
-mongoose.connect('mongodb://localhost/testaroo');
+//Set DB
+const db = require('./config/keys').MongoURI;
 
-mongoose.connection.once('open', () => {
-    console.log("Connected to Mongo");
-}).on('error', () => {
-    console.log('Connection error: ' + error);
-});
+//Connect to Mongo
+mongoose.connect(db, { useNewUrlParser: true, useUnifiedTopology: true })
+    .then(() => console.log('MongoDB connected!'))
+    .catch(err =>  console.log(err));
 
-//Setup Pug for dynamic pages
-app.set('views', 'views');
-app.set('view engine', 'pug');
+//EJS       
+app.use(expressLayouts);
+app.set('view engine', 'ejs');
 
 //Set the server to serve static pages from the public directory
 app.use(express.static('public'));
 
-app.get('/', (req, res) => {
-    res.send('Hello World!')
-})
-
-app.get('/register', (req, res) => {
-    res.render('register');
-})
-
-//When pressing sign up redirect to home page
-app.post('/register', (req, res) => {
-    res.redirect('/');
-})
-
-// app.get('/pomodoro', (req, res) => {
-//     res.render('pomodoro', {title: 'Hello', message: x.toString()});
-// });
+//Routes
+app.use('/', require('./routes/index'));
+app.use('/user', require('./routes/user'));
 
 app.listen(PORT, () => {
     console.log('Server started on localhost:' + PORT);

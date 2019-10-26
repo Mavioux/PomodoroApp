@@ -1,3 +1,31 @@
-<%= time %>
+<div id = "pomodoro-counter">
 
-<script src="/public/js/pomodoro.js"></script>
+</div>
+
+<script>
+ let counter = 15 * 60
+ let counterElement = document.getElementById("pomodoro-counter")
+ let div = document.createElement("div");
+ div.setAttribute('id', "added")
+
+
+setTimeout( () => {
+    countdown(counter)
+}, 1000)
+
+
+function countdown(c) {
+    c = c - 1
+    console.log(c)
+    var cString = document.createTextNode(c.toString());
+    div.appendChild(cString)
+    counterElement.appendChild(div)
+    setTimeout( () => {
+        // var item = document.getElementById("added");
+        // item.parentNode.removeChild(item.firstChild);
+        div.removeChild(div.firstChild)
+        countdown(c)
+    }, 1000)
+}
+
+</script>

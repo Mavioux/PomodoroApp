@@ -2,10 +2,12 @@ endTime = new Date(2020, 5, 17, 16, 45, 0, 0);
 monthElement = document.getElementById('month')
 dayElement = document.getElementById('day')
 hourElement = document.getElementById('hour')
+minuteElement = document.getElementById('minute')
 secondElement = document.getElementById('second')
 monthDiv = document.createElement('div')
 dayDiv = document.createElement('div')
 hourDiv = document.createElement('div')
+minuteDiv = document.createElement('div')
 secondDiv = document.createElement('div')
 monthDiv.setAttribute('id', 'month-number')
 dayDiv.setAttribute('id', 'day-number')
@@ -43,23 +45,18 @@ var x = setInterval( () => {
 
     console.log("Months: " + monthDiff + " Days: " + daysDiff + " Hours: " + hoursDiff + " Minutes: " + minutesDiff + " Seconds: " + secondsDiff)
 
-    // monthText = document.createTextNode(monthDiff)
-    // monthDiv.appendChild(monthText)
     monthDiv.innerHTML = monthDiff
     monthElement.appendChild(monthDiv)
 
-    // dayText = document.createTextNode(daysDiff)
-    // dayDiv.appendChild(dayText)
     dayDiv.innerHTML = daysDiff
     dayElement.appendChild(dayDiv)
 
-    // monthText = document.createTextNode(monthDiff)
-    // hourDiv.appendChild(hourText)
     hourDiv.innerHTML = hoursDiff
     hourElement.appendChild(hourDiv)
 
-    // monthText = document.createTextNode(monthDiff)
-    // monthDiv.appendChild(monthText)
+    minuteDiv.innerHTML = minutesDiff
+    minuteElement.appendChild(minuteDiv)
+
     secondDiv.innerHTML = secondsDiff
     secondElement.appendChild(secondDiv)
     

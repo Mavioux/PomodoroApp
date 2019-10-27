@@ -1,0 +1,22 @@
+.pomodoro-counter {
+    display: inline-block;
+    margin: 0 auto;
+    position: relative;
+    border: 1px solid black
+}
+
+.start-stop-btn{
+    display: inline;
+}
+
+.pause-btn{
+    display: inline;;
+}
+
+.reset-btn{
+    display: inline;
+}
+
+.buttons-layout{
+    display: inline-flex;
+}

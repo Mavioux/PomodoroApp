@@ -11,6 +11,10 @@ router.get('/pomodoro', (req, res) => {
     res.render('pomodoro', {time: 'Hello'});
 });
 
+router.get('/liverpool', (req, res) => {
+    res.render('liverpool');
+});
+
 //Handle dashboard
 router.get('/dashboard', ensureAuthenticated, (req, res) => {
     res.render('dashboard', {

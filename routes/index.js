@@ -7,7 +7,12 @@ router.get('/', (req, res) => {
 });
 
 router.get('/pomodoro', (req, res) => {
-    res.render('pomodoro', {title: 'Hello', message: x.toString()});
+    x = 'world'
+    res.render('pomodoro', {time: 'Hello'});
+});
+
+router.get('/liverpool', (req, res) => {
+    res.render('liverpool');
 });
 
 //Handle dashboard

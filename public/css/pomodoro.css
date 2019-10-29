@@ -18,7 +18,7 @@
     display: inline-block;
     position: absolute;
     left: 50%;
-    top: 35%;
+    top: 30%;
     transform: translate(-50%, -50%);
     font-size: 10vh;
 }
@@ -28,6 +28,10 @@
 }
 
 #minutes {
+    display: inline;
+}
+
+#colons {
     display: inline;
 }
 
